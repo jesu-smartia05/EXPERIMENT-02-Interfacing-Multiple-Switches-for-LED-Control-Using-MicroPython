@@ -2,13 +2,13 @@
 
 
  
-## NAME:
+## NAME: Jesu Smartia A
 
-## DEPARTMENT:
+## DEPARTMENT: B.E.CSE(IoT)
 
-## ROLL NO:
+## ROLL NO: 212223110016
 
-## DATE OF EXPERIMENT:
+## DATE OF EXPERIMENT: 11.02.2026
 
 ## AIM
 
@@ -64,29 +64,105 @@ Connect LED 2 to GP17 via a 330Ω resistor.
 Connect the other terminals of the switches to GND.
 
 ## PROGRAM (MicroPython)
-''''
+### EXPERIMENT 2A
+```
+from machine import Pin
+from time import sleep
 
+print("Welcome Pi Pico")
 
+# Switches with internal pull-ups
+switch1 = Pin(2, Pin.IN, Pin.PULL_UP)
+switch2 = Pin(3, Pin.IN, Pin.PULL_UP)
 
- 
+# LEDs
+led1 = Pin(15, Pin.OUT)
+led2 = Pin(16, Pin.OUT)
+
+while True:
+    sw1_state = switch1.value()  # 0 when pressed, 1 when released
+    sw2_state = switch2.value()
+    
+    print("Switch 1 state:", sw1_state)
+    print("Switch 2 state:", sw2_state)
+    
+    # Turn off LEDs by default
+    led1.value(0)
+    led2.value(0)
+    
+    if sw1_state == 1 and sw2_state == 1:
+        # Both pressed -> both LEDs off
+        led1.value(0)
+        led2.value(0)
+    elif sw1_state == 1:
+        # Only switch1 pressed -> blink led1
+        led1.value(0)
+        sleep(0.5)
+        led1.value(1)
+    elif sw2_state == 1:
+        # Only switch2 pressed -> blink led2
+        led2.value(0)
+        sleep(0.5)
+        led2.value(1)
+    
+    sleep(0.1)
+```
+### EXPERIMENT 2B
+```
+from machine import Pin
+import time
+print("Pi Pico")
+led1 = Pin(0, Pin.OUT)
+led2 = Pin(3, Pin.OUT)
+led3 = Pin(6, Pin.OUT)
+buzzer=Pin(15,Pin.OUT)
+while True:
+    led1.value(1) 
+    print("LED is ON")
+    time.sleep(1) 
+    led1.value(0)  
+    print("LED is OFF")
+    time.sleep(1)
+    led2.value(1) 
+    print("LED is ON")
+    time.sleep(1) 
+    led2.value(0)  
+    print("LED is OFF")
+    time.sleep(1)
+    led3.value(1) 
+    print("LED is ON")
+    time.sleep(1) 
+    led3.value(0)  
+    print("LED is OFF")
+    time.sleep(1)
+    buzzer.value(1) 
+    print("Buzzer is ON")
+    time.sleep(1) 
+    buzzer.value(0)  
+    print("Buzzer is OFF")
+    time.sleep(1)
+```
 
 ## OUTPUT
+### EXPERIMENT 2A
 
+<img width="896" height="721" alt="Screenshot 2026-02-11 111507" src="https://github.com/user-attachments/assets/b6c4659f-d26f-4147-ab75-28393c2bb855" />
 
+<img width="874" height="669" alt="Screenshot 2026-02-11 111726" src="https://github.com/user-attachments/assets/7bf8e37e-7a92-4a64-902d-9e25e2e29d9e" />
 
-FIGURE-02: CIRCUIT CONNECTION
+<img width="907" height="722" alt="Screenshot 2026-02-11 111803" src="https://github.com/user-attachments/assets/ab9519ee-211f-4d54-ad00-34f97d3c99aa" />
 
-FIGURE-03: CODE EXECUTION OUTPUT
+<img width="878" height="626" alt="Screenshot 2026-02-11 112024" src="https://github.com/user-attachments/assets/7273a324-b28e-433f-a9b7-6dc6c4a9dffa" />
 
-FIGURE-04: LED STATUS BASED ON SWITCH INPUTS
-## TIMING DIGAGRAM 
+### EXPERIMENT 2B
+<img width="907" height="607" alt="Screenshot 2026-02-11 113806" src="https://github.com/user-attachments/assets/e9a88af0-b624-4cb2-9ebb-dbd2080cb151" />
 
+<img width="915" height="611" alt="Screenshot 2026-02-11 113829" src="https://github.com/user-attachments/assets/c2a0559e-44ec-4b4d-9b96-f9977403fe3f" />
 
-UPLOAD YOUR TIMING DIGARAM HERE 
+<img width="924" height="662" alt="Screenshot 2026-02-11 113840" src="https://github.com/user-attachments/assets/58254c48-0541-475f-844a-326121d427e5" />
 
-
+<img width="915" height="664" alt="Screenshot 2026-02-11 114046" src="https://github.com/user-attachments/assets/5ea61791-8387-4dc7-92ad-cf2c06a8b63a" />
 
 ## RESULTS
 
 The multiple switches connected to the Raspberry Pi Pico successfully controlled the LEDs based on their states, confirming the proper interfacing of digital inputs and outputs.
-
