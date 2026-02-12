@@ -51,9 +51,9 @@ The LEDs are connected as outputs.
 A MicroPython script reads the switch states and controls the LEDs accordingly.
 
 ### CIRCUIT DIAGRAM
- ![image](https://github.com/user-attachments/assets/1c7234b9-5041-4156-94b8-0b846adb6b8e)
-    Figure-01 circuit diagram of digital input interface 
-
+<img width="878" height="493" alt="Screenshot 2026-02-11 112024" src="https://github.com/user-attachments/assets/6cb3e235-a40f-4bfa-b0e3-ae070018d046" />
+   
+Figure-01 circuit diagram of digital input interface 
 
 Connect switch 1 to GP2 and switch 2 to GP3.
 
